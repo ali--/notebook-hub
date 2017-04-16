@@ -116,7 +116,7 @@
             name: jhub-manifests
         - name: github
           gitRepo:
-            "https://github.com/SparklineData/spark-druid-olap.git"
+            repository: "https://github.com/SparklineData/spark-druid-olap.git"
 ---
   kind: Service
   apiVersion: v1
