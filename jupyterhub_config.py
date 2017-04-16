@@ -19,6 +19,10 @@ c = get_config()
 
 import os
 
+assets_dir = '/home/jovyan/assets'
+c.JupyterHub.logo_file = os.path.join(assets_dir,'logo.png')
+c.JupyterHub.template_paths = [os.path.join(assets_dir,'templates')]
+
 c.JupyterHub.log_level = os.environ['JHUB_LOG_LEVEL']
 
 c.JupyterHub.proxy_api_ip = '0.0.0.0'
@@ -52,6 +56,3 @@ c.Kubernetespawner.create_user_volume_locally = True
 c.Kubernetespawner.volumes = [ {"name": "{username}-nfs", "nfs": {"path": os.environ['KUBESPAWN_NFS_PATH'] ,"server": os.environ['KUBESPAWN_NFS_SERVER']}}]
 c.Kubernetespawner.volume_mounts = [ {"name": "{username}-nfs", "mountPath": "/mnt/notebooks"} ]
 
-assets_dir = os.environ.get('ASSETS_DIR') or '/home/jovyan/assets'
-c.JupyterHub.logo_file = os.path.join(docker_assets_dir,'logo.png')
-c.JupyterHub.template_paths = [os.path.join(assets_dir,'templates')]
