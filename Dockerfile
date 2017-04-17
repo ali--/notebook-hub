@@ -18,7 +18,7 @@
 #
 #
 
-FROM jupyterhub/jupyterhub:latest
+FROM jupyterhub/jupyterhub:0.7.0
 
 WORKDIR /opt
 RUN apt-get -qq update && apt-get install -y nfs-common \
