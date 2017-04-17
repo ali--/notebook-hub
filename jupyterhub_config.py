@@ -40,7 +40,7 @@ c.GoogleOAuthenticator.client_id = os.environ['OAUTH_CLIENT_ID']
 c.GoogleOAuthenticator.client_secret = os.environ['OAUTH_CLIENT_SECRET']
 c.GoogleOAuthenticator.oauth_callback_url = os.environ['OAUTH_CALLBACK_URL']
 c.JupyterHub.spawner_class = 'kubernetespawner.Kubernetespawner'
-c.Kubernetespawner.start_timeout = 45
+c.Kubernetespawner.start_timeout = 600
 c.Kubernetespawner.debug = os.environ['JHUB_SPWN_DEBUG'] == "TRUE"
 c.Kubernetespawner.pod_name_template = 'jupyter-{username}'
 c.Kubernetespawner.hub_ip_connect = os.environ['KSPAWN_HUB_IP']
