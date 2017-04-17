@@ -53,6 +53,9 @@ c.Kubernetespawner.mem_limit = os.environ['KUBESPAWN_MEM_LIMIT']
 c.Kubernetespawner.mem_request = os.environ['KUBESPAWN_MEM_REQUEST']
 c.Kubernetespawner.notebook_dir = '/mnt/notebooks'
 c.Kubernetespawner.create_user_volume_locally = True
+# add the nfs volume
 c.Kubernetespawner.volumes = [ {"name": "{username}-nfs", "nfs": {"path": os.environ['KUBESPAWN_NFS_PATH'] ,"server": os.environ['KUBESPAWN_NFS_SERVER']}}]
 c.Kubernetespawner.volume_mounts = [ {"name": "{username}-nfs", "mountPath": "/mnt/notebooks"} ]
-
+# add the github repo with example notebooks
+c.Kubernetespawner.volumes += [ {"name": "github", "gitRepo": {"repository":"https://github.com/ali--/example-notebooks.git"}}]
+c.Kubernetespawner.volume_mounts += [ {"name": "github", "mountPath": "/home/jovyan/work/"} ]

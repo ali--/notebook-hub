@@ -98,8 +98,6 @@
             name: nfs
           - mountPath: /mnt/configmap
             name: manifests
-          - mountPath: /home/jovyan/work/github
-            name: github
           resources:
             limits:
               cpu: 100m
@@ -114,9 +112,6 @@
         - name: manifests
           configMap:
             name: jhub-manifests
-        - name: github
-          gitRepo:
-            repository: "https://github.com/SparklineData/spark-druid-olap.git"
 ---
   kind: Service
   apiVersion: v1
