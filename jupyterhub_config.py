@@ -57,5 +57,5 @@ c.Kubernetespawner.create_user_volume_locally = True
 c.Kubernetespawner.volumes = [ {"name": "{username}-nfs", "nfs": {"path": os.environ['KUBESPAWN_NFS_PATH'] ,"server": os.environ['KUBESPAWN_NFS_SERVER']}}]
 c.Kubernetespawner.volume_mounts = [ {"name": "{username}-nfs", "mountPath": "/mnt/notebooks"} ]
 # add the github repo with example notebooks
-c.Kubernetespawner.volumes += [ {"name": "github", "gitRepo": {"repository":"https://github.com/ali--/example-notebooks.git"}}]
-c.Kubernetespawner.volume_mounts += [ {"name": "github", "mountPath": "/home/jovyan/work/"} ]
+c.Kubernetespawner.volumes += [ {"name": "github", "gitRepo": {"repository":"https://github.com/ali--/example-notebooks.git"} } ]
+c.Kubernetespawner.volume_mounts = [ {"name": "github", "mountPath": "/home/jovyan/work/examples"} ] + c.Kubernetespawner.volume_mounts
