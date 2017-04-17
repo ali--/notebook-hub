@@ -11,7 +11,6 @@
           "containers": [
               {
                   "name": "jupyter",
-                  "securityContext": {"runAsUser": 0 },
                   "image": "gcr.io/sparklinedata.com/api-project-609493141619/my-images/snap",
                   "livenessProbe": {
                       "exec": {
@@ -35,6 +34,7 @@
                   "command": ["/bin/sh","-c"], 
                   "args": ["/usr/local/bin/start-singleuser.sh"],
                   "volumeMounts": [ {"name": "${username_nq}-nfs", "mountPath": "/home/jovyan/work"}, 
+				    {"name": "github", "mountPath": "/home/jovyan/work"},
                                     {"name": "no-api-access", "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount"} ]
               }
           ],
