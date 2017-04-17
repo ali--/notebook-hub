@@ -35,6 +35,7 @@
                   "command": ["/bin/sh","-c"], 
                   "args": ["/usr/local/bin/start-singleuser.sh"],
                   "volumeMounts": [ {"name": "${username_nq}-nfs", "mountPath": "/home/jovyan/work"}, 
+ 				    {"name": "github", "mountPath": "/home/jovyan/work/examples"},
                                     {"name": "no-api-access", "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount"} ]
               }
           ],

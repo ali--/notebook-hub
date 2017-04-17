@@ -58,4 +58,4 @@ c.Kubernetespawner.volumes = [ {"name": "{username}-nfs", "nfs": {"path": os.env
 c.Kubernetespawner.volume_mounts = [ {"name": "{username}-nfs", "mountPath": "/mnt/notebooks"} ]
 # add the github repo with example notebooks
 c.Kubernetespawner.volumes += [ {"name": "github", "gitRepo": {"repository":"https://github.com/ali--/example-notebooks.git"} } ]
-c.Kubernetespawner.volume_mounts = [ {"name": "github", "mountPath": "/home/jovyan/"} ] + c.Kubernetespawner.volume_mounts
+c.Kubernetespawner.volume_mounts += [ {"name": "github", "mountPath": "/home/jovyan/"} ]
