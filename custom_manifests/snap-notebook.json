@@ -30,11 +30,11 @@
                           "cpu": ${cpu_limit}
                       }
                   },
-                  "env": ${env_minus_nbdir},
+                  "env": ${env},
                   "command": ["/bin/sh","-c"], 
-                  "args": ["/usr/local/bin/start-singleuser.sh"],
-                  "volumeMounts": [ {"name": "${username_nq}-nfs", "mountPath": "/home/jovyan/work/shared"}, 
-                                    {"name": "github", "mountPath": "/home/jovyan/work/"}, 
+                  "args": ["/tmp/docker-entrypoint.sh"],
+                  "volumeMounts": [ {"name": "${username_nq}-nfs", "mountPath": "/tmp/shared"}, 
+                                    {"name": "github", "mountPath": "/tmp/examples"}, 
                                     {"name": "no-api-access", "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount"} ]
               }
           ],
